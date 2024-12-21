@@ -11,14 +11,16 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg bg-primary">
-        <div class="container">
-            <a class="text-white navbar-brand" href="/">Navbar</a>
-            <a class="btn btn-light" href="{{ url('/login') }}">Login</a>
-        </div>
-    </nav>
+    <div class="" style="width: 100vw; height:100vh">
+        <nav class="navbar navbar-expand-lg bg-primary">
+            <div class="container">
+                <a class="text-white navbar-brand" href="/">Navbar</a>
+                <a class="btn btn-light" href="{{ url('/login') }}">Login</a>
+            </div>
+        </nav>
 
-    @yield('content')
+        @yield('content')
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">

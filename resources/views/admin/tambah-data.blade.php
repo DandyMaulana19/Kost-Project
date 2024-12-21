@@ -1,29 +1,54 @@
 @extends('template.admin')
 
-@section('title', 'Tambah Data')
+@section('title', 'Tambah Data Kos')
 
 @section('content')
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <h1>Tambah Data</h1>
-                <form action="{{ url('/tambah-data') }}" method="post">
-                    @csrf
-                    <div class="mb-3">
-                        <label for="nama" class="form-label">Nama</label>
-                        <input type="text" class="form-control" id="nama" name="nama">
-                    </div>
-                    <div class="mb-3">
-                        <label for="alamat" class="form-label">Alamat</label>
-                        <input type="text" class="form-control" id="alamat" name="alamat">
-                    </div>
-                    <div class="mb-3">
-                        <label for="telepon" class="form-label">Telepon</label>
-                        <input type="text" class="form-control" id="telepon" name="telepon">
-                    </div>
-                    <button type="submit" class="btn btn-primary">Tambah Data</button>
-                </form>
+    <div class="container p-4 h-100 d-flex justify-content-center align-items-center">
+        <div class="p-4 bg-white border border-black rounded flex-column d-flex col-md-6">
+            <div class="mb-4 text-center">
+                <h2>Tambah Data Kos</h2>
             </div>
+            <form>
+                <div class="mb-3 g-3 d-flex row">
+                    <div class="col-6">
+                        <label for="nama" class="form-label">Nama Kos</label>
+                        <input type="text" class="form-control" id="nama" name="nama"
+                            placeholder="Masukkan Nama Kos" required>
+                    </div>
+                    <div class="col-6">
+                        <label for="tipe" class="form-label">Status</label>
+                        <select class="form-select" id="tipe" name="tipe" required>
+                            <option value="" selected disabled>Pilih Tipe Kos</option>
+                            <option value="Putra">Putra</option>
+                            <option value="Putri">Putri</option>
+                            <option value="campur">Campur</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="alamat" class="form-label">Alamat</label>
+                    <textarea class="form-control" id="alamat" name="alamat" rows="1" placeholder="Masukkan Alamat Kos" required></textarea>
+                </div>
+                <input class="d-none" id="status" name="status" value="Tersedia">
+                <div class="mb-3 g-3 d-flex row">
+                    <div class="col-6">
+                        <label for="stock" class="form-label">Stok</label>
+                        <input type="number" class="form-control" id="stock" name="stock"
+                            placeholder="Masukkan Stok Kamar" required>
+                    </div>
+                    <div class="col-6">
+                        <label for="image" class="form-label">Gambar</label>
+                        <input type="file" class="form-control" id="image" name="image" required>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <label for="deskripsi" class="form-label">Deskripsi</label>
+                    <textarea class="form-control" id="deskripsi" name="deskripsi" rows="3" placeholder="Masukkan Deskripsi" required></textarea>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <button class="w-50 btn btn-primary" type="submit">Simpan</button>
+                </div>
+            </form>
         </div>
     </div>
 @endsection
