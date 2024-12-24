@@ -1,6 +1,6 @@
-@extends('template.admin')
+@extends('template.app')
 
-@section('title', 'Detail Kost')
+@section('title', 'Detail Kos')
 
 @section('content')
     <div class="container py-4">
@@ -15,18 +15,15 @@
                 <p><strong>Tipe:</strong> {{ $kost->tipe }}</p>
                 <p><strong>Alamat:</strong> {{ $kost->alamat }}</p>
                 <p><strong>Status:</strong>
-                    @if ($kost->status === 'Tersedia')
-                        <span class="badge bg-success">Tersedia</span>
-                    @else
-                        <span class="badge bg-danger">Penuh</span>
-                    @endif
+                    <span
+                        class="badge {{ $kost->status == 'Tersedia' ? 'bg-success' : 'bg-danger' }}">{{ $kost->status }}</span>
                 </p>
                 <p><strong>Stok:</strong> {{ $kost->stock }} kamar</p>
                 <p><strong>Deskripsi:</strong></p>
                 <p>{{ $kost->deskripsi }}</p>
 
                 <div class="mt-4">
-                    <a href="{{ url('/admin/dashboard') }}" class="btn btn-secondary">Kembali</a>
+                    <a href="{{ url('/list-kost') }}" class="btn btn-secondary">Kembali</a>
                 </div>
             </div>
         </div>

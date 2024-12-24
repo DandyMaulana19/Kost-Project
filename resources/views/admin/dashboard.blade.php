@@ -7,7 +7,7 @@
         <div class="mb-5 row">
             <div class="mb-3 col-md-4 col-sm-6">
                 <div class="p-4 text-white rounded shadow d-flex bg-primary align-items-center" style="height: 150px;">
-                    <div class="display-1 fw-bold me-3" style="flex: 1;">30</div>
+                    <div class="display-1 fw-bold me-3" style="flex: 1;">{{ $totalKost }}</div>
                     <div class="text-end" style="flex: 2;">
                         <div class="fs-6">Kamar Kos</div>
                         <div class="fw-bold">Total</div>
@@ -16,7 +16,7 @@
             </div>
             <div class="mb-3 col-md-4 col-sm-6">
                 <div class="p-4 text-white rounded shadow d-flex bg-success align-items-center" style="height: 150px;">
-                    <div class="display-1 fw-bold me-3" style="flex: 1;">15</div>
+                    <div class="display-1 fw-bold me-3" style="flex: 1;">{{ $kostTersedia }}</div>
                     <div class="text-end" style="flex: 2;">
                         <div class="fs-6">Kamar Kos</div>
                         <div class="fw-bold">Tersedia</div>
@@ -27,16 +27,16 @@
                 <div class="px-4 text-white rounded shadow flex-column d-flex bg-danger justify-content-center align-items-center"
                     style="height: 150px;">
                     <div class="col-12 d-flex justify-content-between align-items-center">
-                        <span class="fw-bold fs-3">45</span>
-                        <span class="fs-5">Kos Putra</span>
+                        <span class="fw-bold fs-3">{{ $kostPutra }}</span>
+                        <span class="fs-6">Kos Putra</span>
                     </div>
                     <div class="col-12 d-flex justify-content-between align-items-center">
-                        <span class="fw-bold fs-3">45</span>
-                        <span class="fs-5">Kos Putri</span>
+                        <span class="fw-bold fs-3">{{ $kostPutri }}</span>
+                        <span class="fs-6">Kos Putri</span>
                     </div>
                     <div class="col-12 d-flex justify-content-between align-items-center">
-                        <span class="fw-bold fs-3">45</span>
-                        <span class="fs-5">Kos Campur</span>
+                        <span class="fw-bold fs-3">{{ $kostCampur }}</span>
+                        <span class="fs-6">Kos Campur</span>
                     </div>
                 </div>
             </div>

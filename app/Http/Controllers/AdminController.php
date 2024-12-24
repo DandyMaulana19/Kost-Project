@@ -13,9 +13,19 @@ class AdminController extends Controller
      */
     public function index()
     {
+        $totalKost = Kost::count();
+        $kosTersedia = Kost::where('status', 'Tersedia')->count();
+        $kosPutri = Kost::where('tipe', 'Putri')->count();
+        $kosPutra = Kost::where('tipe', 'Putra')->count();
+        $kosCampur = Kost::where('tipe', 'Campur')->count();
         $kosts = Kost::all();
         return view('admin.dashboard', [
-            'kosts' => $kosts
+            'kosts' => $kosts,
+            'totalKost' => $totalKost,
+            'kostTersedia' => $kosTersedia,
+            'kostPutri' => $kosPutri,
+            'kostPutra' => $kosPutra,
+            'kostCampur' => $kosCampur,
         ]);
     }
 
@@ -24,7 +34,7 @@ class AdminController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.tambah-data');
     }
 
     /**
@@ -32,6 +42,8 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->all());
+
         if ($request->hasFile('image')) {
             $imagePath = $request->file('image')->store('images', 'public');
         } else {
@@ -43,11 +55,13 @@ class AdminController extends Controller
             'tipe' => $request->input('tipe'),
             'alamat' => $request->input('alamat'),
             'status' => $request->input('status'),
+            'harga' => $request->input('harga'),
             'stock' => $request->input('stock'),
+            'deskripsi' => $request->input('deskripsi'),
             'image' => $imagePath,
         ]);
 
-        return redirect('/admin/dashboard');
+        return redirect('/admin');
     }
     /**
      * Display the specified resource.
@@ -91,6 +105,6 @@ class AdminController extends Controller
         }
         $kost->delete();
 
-        return redirect('/admin/dashboard');
+        return redirect('/admin');
     }
 }

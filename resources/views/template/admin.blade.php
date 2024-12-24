@@ -20,7 +20,7 @@
                         <a class="text-white nav-link" href="{{ url('/admin') }}">Dashboard</a>
                     </li>
                     <li class="nav-item">
-                        <a class="text-white nav-link" href="{{ url('/tambah-data') }}">Tambah Data</a>
+                        <a class="text-white nav-link" href="{{ url('/admin/tambah-data') }}">Tambah Data</a>
                     </li>
                 </ul>
             </div>

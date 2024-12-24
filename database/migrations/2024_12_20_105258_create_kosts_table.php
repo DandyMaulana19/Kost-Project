@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('tipe');
             $table->text('alamat');
             $table->string('status');
+            $table->integer('harga');
             $table->integer('stock');
             $table->string('image');
             $table->timestamps();

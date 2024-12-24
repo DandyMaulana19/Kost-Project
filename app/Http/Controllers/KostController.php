@@ -9,21 +9,17 @@ class KostController extends Controller
 {
     public function index()
     {
-        $kost = Kost::where('status', 'tersedia');
-        return view('pages.home', [
+        $kost = Kost::where('status', 'Tersedia')->get();
+        // $kost = Kost::all();
+        return view('pages.list-kost', [
             'kosts' => $kost
         ]);
-    }
-
-    public function booking(Request $request, $id)
-    {
-        $validate = $request->validate([]);
     }
 
     public function show($id)
     {
         $kost = Kost::findOrFail($id);
-        return view('pages.detail', [
+        return view('pages.detail-kost', [
             'kost' => $kost
         ]);
     }

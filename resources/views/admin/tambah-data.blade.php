@@ -8,7 +8,8 @@
             <div class="mb-4 text-center">
                 <h2>Tambah Data Kos</h2>
             </div>
-            <form>
+            <form action="{{ url('/admin/tambah-data') }}" method="POST" enctype="multipart/form-data">
+                @csrf
                 <div class="mb-3 g-3 d-flex row">
                     <div class="col-6">
                         <label for="nama" class="form-label">Nama Kos</label>
@@ -30,6 +31,15 @@
                     <textarea class="form-control" id="alamat" name="alamat" rows="1" placeholder="Masukkan Alamat Kos" required></textarea>
                 </div>
                 <input class="d-none" id="status" name="status" value="Tersedia">
+                <div class="mb-3">
+                    <label for="harga" class="form-label">Harga</label>
+                    <div class="input-group">
+                        <span class="input-group-text">Rp.</span>
+                        <input type="number" class="form-control" min="0.00" name="harga" id="harga"
+                            placeholder="Masukkan Harga Kos" required>
+                        <span class="input-group-text">.00</span>
+                    </div>
+                </div>
                 <div class="mb-3 g-3 d-flex row">
                     <div class="col-6">
                         <label for="stock" class="form-label">Stok</label>
