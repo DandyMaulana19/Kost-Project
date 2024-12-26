@@ -24,7 +24,11 @@
                     </li>
                 </ul>
             </div>
-            <a class="btn btn-light" href="{{ url('/login') }}">Login</a>
+            @if (Auth::check())
+                <a class="btn btn-light" href="{{ url('/logout') }}">Logout</a>
+            @else
+                <a class="btn btn-light" href="{{ url('/login') }}">Login</a>
+            @endif
         </div>
     </nav>
 

@@ -16,8 +16,6 @@ class LoginController extends Controller
     public function authenticate(Request $request)
     {
 
-        dd($request->all());
-
         $credentials = $request->validate([
             'email' => ['required', 'email'],
             'password' => ['required', 'min:8']
@@ -25,12 +23,18 @@ class LoginController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->intended('/admin/dashboard');
+            return redirect()->intended('/admin');
         }
 
         return back()->withErrors([
             'email' => 'Email tidak ditemukan',
             'password' => 'Password salah',
         ]);
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect('/login');
     }
 }
